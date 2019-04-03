@@ -27,3 +27,9 @@ images
 *.weights
 
 coco-minival/
+
+\.idea/
+
+examples/
+
+test/

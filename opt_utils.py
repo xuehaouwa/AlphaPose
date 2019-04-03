@@ -18,7 +18,7 @@ parser.add_argument('--snapshot', default=1, type=int,
 "----------------------------- AlphaPose options -----------------------------"
 parser.add_argument('--addDPG', default=False, type=bool,
                     help='Train with data augmentation')
-parser.add_argument('--sp', default=True, action='store_true',
+parser.add_argument('--sp', default=False, action='store_true',
                     help='Use single process for pytorch')
 parser.add_argument('--profile', default=False, action='store_true',
                     help='add speed profiling at screen output')
@@ -109,8 +109,6 @@ parser.add_argument('--net', dest='demo_net', help='Network to use [vgg16 res101
                     default='res152')
 parser.add_argument('--indir', dest='inputpath',
                     help='image-directory', default="")
-parser.add_argument('--list', dest='inputlist',
-                    help='image-list', default="")
 parser.add_argument('--mode', dest='mode',
                     help='detection mode, fast/normal/accurate', default="normal")
 parser.add_argument('--outdir', dest='outputpath',
@@ -134,15 +132,7 @@ parser.add_argument('--detbatch', type=int, default=1,
 parser.add_argument('--posebatch', type=int, default=80,
                     help='pose estimation maximum batch size')
 
-"----------------------------- Video options -----------------------------"
-parser.add_argument('--video', dest='video',
-                    help='video-name', default="")
-parser.add_argument('--webcam', dest='webcam', type=str,
-                    help='webcam number', default='0')
-parser.add_argument('--save_video', dest='save_video',
-                    help='whether to save rendered video', default=False, action='store_true')
-parser.add_argument('--vis_fast', dest='vis_fast',
-                    help='use fast rendering', action='store_true', default=False)
+
 opt = parser.parse_args()
 
 opt.num_classes = 80
